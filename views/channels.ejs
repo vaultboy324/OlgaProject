@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форум</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<body>
+<div class="container">
+<ul>
+    <%channels.forEach(function (channel) {%>
+        <li><a href="/channels/<%= channel._id%>" class="text-light"><%= channel.name%></a></li>
+    <%})%>
+</ul>
+<form method="post" action="/">
+    <button type="submit" class="btn btn-primary">Добавить канал</button>
+</form>
+<form method="post" action="/">
+    <button type="submit" style="margin-top: 20px" class="btn btn-primary" value="Выход" name="exit">Выход</button>
+</form>
+</div>
+</body>
+</html>

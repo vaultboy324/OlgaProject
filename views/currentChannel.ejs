@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<body>
+<div class="container-fluid">
+<form method="post" action="/channels/:id" style="margin-left: 0px">
+    <%if(request.session.participant){%>
+    <div>
+        <%messages.forEach(function (message) {%>
+        <h3><%=message.author%></h3>
+        <p><%=message.text%></p>
+        <%})%>
+    </div>
+    <div>
+        <textarea cols="400" name="textInput" rows="4">
+
+        </textarea>
+        <!--<input type="text" required name="textInput" id="textInput" placeholder="Введите текст сообщения">-->
+        <button type="submit" class="btn btn-success" name="send" value="send">Отправить сообщение</button>
+    </div>
+    <%} else {%>
+        <button type="submit" class="btn btn-success " name="join" value="join">Присоединиться</button>
+    <%}%>
+</form>
+</div>
+</body>
+</html>

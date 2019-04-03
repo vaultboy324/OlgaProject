@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<body>
+<div class="container">
+<form method="post" action="/addChannel">
+    <div class="form-group">
+        <label for="idNameInput">Название</label>
+        <input type="text" class="form-control" required name="nameInput" id="idNameInput" aria-describedby="emailHelp" placeholder="Введите название канала">
+    </div>
+    <div>
+        <%errors.forEach(function (error) {%>
+        <h3 class="text-danger"><%=error.text%></h3>
+        <%})%>
+    </div>
+    <button type="submit" style="margin-left: 300px" class="btn btn-success" value="join">Подтвердить</button>
+</form>
+</div>
+</body>
+</html>
